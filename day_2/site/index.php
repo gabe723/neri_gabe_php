@@ -15,7 +15,7 @@ if( isset($_GET['page']) ){
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Mini Site With Query String Vars | Home</title>
+  <title>My Mini Site With Query String Vars | Home</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
