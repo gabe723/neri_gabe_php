@@ -1,0 +1,42 @@
+php.net
+apachefriends.org
+147colors colors.commutercreative
+
+
+php token:
+<?php ... ?>
+
+
+Some Syntax:
+
+'' = literal
+
+"" = parsed (proccessed)
+
+. = concatinate
+
+-> = pointer
+
+
+Variables:
+ex.
+$myVariable = 'some string';
+$myVariable = 2;
+$myVariable = $variable +2;
+$myVariable = null;
+
+
+All Inclusive:
+include('/filepath/filename.php');
+required('/filepath/filename.php'); - If server can't find file with required it stops
+include_once('/filepath/filename.php');
+require_once('/filepath/filename.php');
+
+
+Functions:
+ex. 
+function myFunction($param, $param2){
+     //do stuff
+    }
+
+
