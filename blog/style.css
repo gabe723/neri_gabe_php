@@ -1,0 +1,37 @@
+html{
+  background-color: lightblue;
+  box-sizing: border-box;
+}
+html > * {
+  box-sizing: inherit;
+}
+header{
+  background-color: turquoise;
+}
+body{
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: Calibri, Arial, sans-serif;
+  background-color: white;
+  padding: 1em;
+}
+aside{
+  background-color: cornflowerblue;
+}
+footer{
+  color: white;
+  background-color: black;
+}
+@media screen and (min-width: 500px){
+  main{
+    width: 65%;
+    float: right;
+  }
+  aside{
+    width: 32%;
+    float: left;
+  }
+  footer{
+    clear: both;
+  }
+}
