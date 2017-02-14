@@ -7,14 +7,14 @@ include_once('header.php');
 ?>
 <main>
   <?php
-  //get the most recent 2 published posts and the category names
+  //get ALL published posts, newest first
   $query = "SELECT posts.title, posts.date, categories.name, posts.body, users.username
   FROM posts, categories, users
   WHERE posts.is_published = 1
   AND posts.category_id = categories.category_id
   AND posts.user_id = users.user_id
   ORDER BY posts.date DESC
-  LIMIT 2";
+  LIMIT 20";
   //run the query, catch the returned info in a result object
   $db->query($query);
   $result = $db->query($query);
@@ -36,7 +36,6 @@ include_once('header.php');
       echo 'Sorry, no posts to show.';
     }
     ?>
-    <a href="blog.php">Read All Posts</a>
   </main>
   <?php
   //get the aside element
