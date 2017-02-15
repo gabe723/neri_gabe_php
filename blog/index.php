@@ -5,10 +5,10 @@ include_once('functions.php');
 //get the doctype and header element
 include_once('header.php');
 ?>
-<main>
+<main id="content">
   <?php
   //get the most recent 2 published posts and the category names
-  $query = "SELECT posts.title, posts.date, categories.name, posts.body, users.username
+  $query = "SELECT posts.title, posts.date, categories.name, posts.body, users.username, posts.post_id
   FROM posts, categories, users
   WHERE posts.is_published = 1
   AND posts.category_id = categories.category_id
@@ -16,7 +16,6 @@ include_once('header.php');
   ORDER BY posts.date DESC
   LIMIT 2";
   //run the query, catch the returned info in a result object
-  $db->query($query);
   $result = $db->query($query);
   //check to see if the result has rows (posts in this case)
   if ( $result->num_rows >= 1 ) {
@@ -24,7 +23,7 @@ include_once('header.php');
     while( $row = $result->fetch_assoc() ){
       ?>
       <article class="post">
-        <h2><?php echo $row['title']; ?></h2>
+        <a href="single.php?post_id=<?php echo $row['post_id'] ?>"><h2><?php echo $row['title']; ?></h2></a>
         <div class="post-meta">
           By <?php echo $row['username']; ?> on <?php echo convert_timestamp($row['date']); ?> in <?php echo $row['name']; ?></div>
           <p><?php echo $row['body']; ?></p>

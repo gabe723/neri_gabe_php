@@ -4,7 +4,7 @@
     <?php
     //get the latests 5 published posts and their comment count
     //TODO: make this show the posts that have 0 comments
-    $query = "SELECT posts.title, COUNT(*) AS total
+    $query = "SELECT posts.title, COUNT(*) AS total, posts.post_id
     FROM posts, comments
     WHERE posts.post_id = comments.post_id
     AND posts.is_published = 1
@@ -21,7 +21,7 @@
         //loop it
         while( $row = $result->fetch_assoc() ){
           ?>
-          <li><?php echo $row['title']; ?> (<?php echo $row['total']; ?>)</li>
+          <li><a href="single.php?post_id=<?php echo $row['post_id'] ?>"><?php echo $row['title']; ?></a> - (<?php echo $row['total']; ?>)</li>
           <?php
         }//end while
         //free it

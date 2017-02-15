@@ -22,6 +22,12 @@ footer{
   color: white;
   background-color: black;
 }
+/*form styles*/
+input, textarea, label{
+  display: block;
+  width: 100%;
+  margin: .2em 0;
+}
 @media screen and (min-width: 500px){
   main{
     width: 65%;
