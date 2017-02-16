@@ -1,5 +1,12 @@
 <aside class="sidebar">
-  <section>
+  <section id="search_form_wrap">
+    <form class="form-search" action="search.php" method="get">
+      <label for="the_keywords">Search:</label>
+      <input type="search" name="keywords" id="the_keywords">
+      <input type="submit" value="Go" class="search-button">
+    </form>
+  </section>
+  <section id="sidbar_wrap">
     <h2>Recent Posts</h2>
     <?php
     //get the latests 5 published posts and their comment count
