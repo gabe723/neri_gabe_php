@@ -1,0 +1,45 @@
+body{
+  background-color: orchid;
+  font-family: sans-serif;
+}
+#display-area{
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 1em;
+  margin: 1em 0;
+}
+#display-area h2{
+  color: indigo;
+  text-transform: uppercase;
+  font-size: 1.3em;
+}
+article{
+  margin: 1em 0;
+  border-top: solid 1px white;
+}
+.loading{
+  background-color: rgba(0, 0 , 0 , 0.3);
+}
+
+.loading:before{
+  content: 'Loding..';
+}
+
+/*for the tabs interface*/
+.tabs{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.tab{
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: indigo;
+  cursor: pointer;
+  padding: .2em .5em;
+  border-radius: .5em;
+  margin: .2em .1em;
+}
+.current{
+  background-color: indigo;
+  color: white;
+}
