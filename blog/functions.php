@@ -5,6 +5,12 @@ function convert_timestamp( $ugly ){
   echo $date->format('l, jS, F, o');
 }
 
+//a function to convert ugly time rss to human-friendly rss
+function convert_timerss( $ugly ){
+  $date = new DateTime( $ugly );
+  echo $date->format('r');
+}
+
 //sanitize functions: extract the values that the user typed in and sanitize
 function clean_string( $untrusted ){
   global $db;
