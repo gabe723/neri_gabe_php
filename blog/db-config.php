@@ -11,3 +11,5 @@ if ( $db->connect_errno > 0 ) {
 }
 //hide notices
 error_reporting( E_ALL & ~ E_NOTICE );
+/***CONFIDENTIAL global salt for making our passwords stronger.CONFIDENTIAL***/
+define(SALT, 'ohsdoh!&*fodhfodjqwpjkojlpo1-o-ok1o-k-lkaplp;;ajlnlqiio');
