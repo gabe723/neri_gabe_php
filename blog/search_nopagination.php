@@ -16,7 +16,7 @@ $keywords = clean_string( $_GET['keywords'] );
   WHERE is_published = 1
   AND ( title LIKE '%$keywords%' OR body LIKE '%$keywords%' )";
   //run the query, catch the returned info in a result object
-  $result = $db->query($query);
+  $result = $db->query( $query );
   //check to see if the result has rows (posts in this case)
   if ( $result->num_rows >= 1 ) {
     //loop through each row found, displaying the article each time

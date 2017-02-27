@@ -1,4 +1,10 @@
-<aside class="sidebar">
+<aside id="sidebar">
+  <nav>
+    <ul>
+      <li><a href="admin/">Admin Panel</a></li>
+      <li><a href="register.php">Sign Up</a></li>
+    </ul>
+  </nav>
   <section id="search_form_wrap">
     <form class="form-search" action="search.php" method="get">
       <label for="the_keywords">Search:</label>
@@ -10,16 +16,13 @@
     <h2>Recent Posts</h2>
     <?php
     //get the latests 5 published posts and their comment count
-    //TODO: make this show the posts that have 0 comments
-    $query = "SELECT posts.title, COUNT(*) AS total, posts.post_id
-    FROM posts, comments
-    WHERE posts.post_id = comments.post_id
-    AND posts.is_published = 1
-    GROUP BY comments.post_id
+    $query = "SELECT posts.title, posts.post_id
+    FROM posts
+    WHERE posts.is_published = 1
     ORDER BY posts.date DESC
     LIMIT 5";
     //run it
-    $result = $db->query($query);
+    $result = $db->query( $query );
     //check it
     if ( $result->num_rows >=1 ) {
       ?>
@@ -28,7 +31,7 @@
         //loop it
         while( $row = $result->fetch_assoc() ){
           ?>
-          <li><a href="single.php?post_id=<?php echo $row['post_id'] ?>"><?php echo $row['title']; ?></a> - (<?php echo $row['total']; ?>)</li>
+          <li><a href="single.php?post_id=<?php echo $row['post_id'] ?>"><?php echo $row['title']; ?></a> - (<?php count_comments( $row['post_id'] ); ?>)</li>
           <?php
         }//end while
         //free it
@@ -52,7 +55,7 @@
       ORDER BY c.name ASC
       LIMIT 5";
       //run it
-      $result = $db->query($query);
+      $result = $db->query( $query );
       //check it
       if ( $result->num_rows >=1 ) {
         ?>
@@ -83,7 +86,7 @@
         ORDER BY title ASC
         LIMIT 5";
         //run it
-        $result = $db->query($query);
+        $result = $db->query( $query );
         //check it
         if ( $result->num_rows >=1 ) {
           ?>

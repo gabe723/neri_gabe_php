@@ -40,7 +40,7 @@ if ( $_POST['did_comment'] ) {
     //add one comment to the DB
     $query = "INSERT INTO comments ( name, date, body, post_id, email, url, is_approved ) VALUES ( '$name', now(), '$body', $post_id, '$email', '$url', 1 )"; //set is_approved to 0 to enable comment moderation
     //run it
-    $result = $db->query($query);
+    $result = $db->query( $query );
     //check to see if one row was added
     if ( $de->affected_rows == 1 ) {
       $status = 'success';
@@ -65,7 +65,7 @@ if ( $_POST['did_comment'] ) {
   AND posts.post_id = $post_id
   LIMIT 1";
   //run the query, catch the returned info in a result object
-  $result = $db->query($query);
+  $result = $db->query( $query );
   //check to see if the result has rows (posts in this case)
   if ( $result->num_rows >= 1 ) {
     //loop it
@@ -89,7 +89,7 @@ if ( $_POST['did_comment'] ) {
       ORDER BY date ASC
       LIMIT 20";
       //run it
-      $result = $db->query($query);
+      $result = $db->query( $query );
       //check it
       if( $result->num_rows >= 1 ){
         ?>

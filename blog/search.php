@@ -19,7 +19,7 @@ $current_page = 1;
   WHERE is_published = 1
   AND ( title LIKE '%$keywords%' OR body LIKE '%$keywords%' )";
   //run the query, catch the returned info in a result object
-  $result = $db->query($query);
+  $result = $db->query( $query );
   //how many posts were found?
   $total_posts = $result->num_rows;
   //check to see if the result has rows (posts in this case)
@@ -40,7 +40,7 @@ $current_page = 1;
       $offset = $current_page - 1 * $per_page;
       $query = $query . " LIMIT $offset, $per_page";
       //run the modified query
-      $result = $db->query($query);
+      $result = $db->query( $query );
       //loop through each row found, displaying the article each time
       while( $row = $result->fetch_assoc() ){
         ?>
@@ -56,29 +56,29 @@ $current_page = 1;
         ?>
         <section class="pagination">
           <?php if ( $current_page != 1 ){ ?>
-          <a href="search.php?keywords=<?php echo $keywords; ?>&amp;page=<?php echo $prev; ?>">Previous Page</a>
-          <?php } //end if current page does not equal 1 ?>
-          <?php if ( $current_page < $total_pages ){ ?>
-          <a href="search.php?keywords=<?php echo $keywords; ?>&amp;page=<?php echo $next; ?>">Next Page</a>
-          <?php } //end if current page is less than total pages ?>
-        </section>
-        <?php
-      }//end if the user is on a valid page
-      else{
-        echo 'This is an invalid page.';
-      }
-    }//end if there are posts
-    else{
-      echo 'Sorry, no posts to show.';
-    }
-    ?>
-    <a href="blog.php">Read All Posts</a>
-  </main>
-  <?php
-  //get the aside element
-  include_once('aside.php');
-  ?>
-  <?php
-  //get the footer element and close the open body and html tags
-  include_once('footer.php');
-  ?>
+            <a href="search.php?keywords=<?php echo $keywords; ?>&amp;page=<?php echo $prev; ?>">Previous Page</a>
+            <?php } //end if current page does not equal 1 ?>
+            <?php if ( $current_page < $total_pages ){ ?>
+              <a href="search.php?keywords=<?php echo $keywords; ?>&amp;page=<?php echo $next; ?>">Next Page</a>
+              <?php } //end if current page is less than total pages ?>
+            </section>
+            <?php
+          }//end if the user is on a valid page
+          else{
+            show_feedback( 'This is an invalid page.' );
+          }
+        }//end if there are posts
+        else{
+          show_feedback( 'Sorry, no posts to show.' );
+        }
+        ?>
+        <a href="blog.php">Read All Posts</a>
+      </main>
+      <?php
+      //get the aside element
+      include_once('aside.php');
+      ?>
+      <?php
+      //get the footer element and close the open body and html tags
+      include_once('footer.php');
+      ?>

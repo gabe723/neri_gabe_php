@@ -10,7 +10,7 @@
   <h1>Read all the posts in a category:</h1>
   <?php
   $query = "SELECT * FROM categories";
-  $result = $db->query($query);
+  $result = $db->query( $query );
   //handy way to check for query problems!
   if ( ! $result ) {
     echo $db->error;

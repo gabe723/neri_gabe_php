@@ -16,7 +16,7 @@ WHERE posts.user_id = users.user_id
 AND posts.category_id = $category_id
 ORDER BY date DESC
 LIMIT 10";
-$result = $db->query($query);
+$result = $db->query( $query );
 if ( ! $result ) {
   // echo $query. '<br>';
   // echo $db->error;

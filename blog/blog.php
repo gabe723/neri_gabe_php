@@ -16,7 +16,7 @@ include_once('header.php');
   ORDER BY posts.date DESC
   LIMIT 20";
   //run the query, catch the returned info in a result object
-  $result = $db->query($query);
+  $result = $db->query( $query );
   //check to see if the result has rows (posts in this case)
   if ( $result->num_rows >= 1 ) {
     //loop through each row found, displaying the article each time

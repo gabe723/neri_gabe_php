@@ -2,7 +2,6 @@
 html {
   box-sizing: border-box;
 }
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -10,20 +9,16 @@ body {
   background: #f1f2f7;
   font-family: 'Open Sans', arial, sans-serif;
   color: darkslategray;
+  margin:0;
 }
 body.login{
-  max-width: 40%;
-  margin: 0 auto;
+  max-width:25em;
+  margin:0 auto;
 }
-.login a{
-  color: blue;
-}
-
 /* general utility classes */
 .warn {
   color: tomato;
 }
-
 /* header */
 header[role=banner] {
   background: white;
@@ -52,7 +47,6 @@ header[role=banner] .utilities li a {
   padding: .7em;
   display: block;
 }
-
 /* header */
 .utilities a:before {
   content: "\f248";
@@ -65,10 +59,12 @@ header[role=banner] .utilities li a {
 .users a:before {
   content: "";
 }
+.blog a:before {
+  content: "\f015";
+}
 nav[role=navigation] {
   background: #2a3542;
   color: #ddd;
-
   /* icons */
 }
 nav[role=navigation] li {
@@ -103,7 +99,6 @@ nav[role=navigation] .comments a:before {
 nav[role=navigation] .users a:before {
   content: "";
 }
-
 /* current nav item */
 .current, .dashboard .dashboard a, .write .write a, .edit .edit a, .comments .comments a, .users .users a {
   background-color: rgba(255, 255, 255, 0.1);
@@ -115,7 +110,6 @@ footer[role=contentinfo] {
   text-align: center;
   padding: .2em;
 }
-
 /* panels */
 .panel {
   background-color: white;
@@ -129,11 +123,13 @@ footer[role=contentinfo] {
 .panel > h2, .panel > ul {
   margin: 1rem;
 }
-
 /* typography */
 a {
   text-decoration: none;
-  color: inherit;
+  color: blue;
+}
+a:hover{
+  color: black;
 }
 h2,
 h3,
@@ -147,9 +143,9 @@ h2 {
 b {
   color: lightsalmon;
 }
-
 /* lists */
-nav ul, nav li {
+nav ul,
+nav li {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -170,8 +166,14 @@ main li:before {
   border-top: solid 5px transparent;
   border-bottom: solid 5px transparent;
 }
-
 /* forms */
+form{
+  margin:1em 0;
+}
+form .hint{
+  color:gray;
+  font-size: .9em;
+}
 form input, form textarea, form select {
   width: 100%;
   display: block;
@@ -196,6 +198,7 @@ form input[type=submit] {
   border: none;
   border-bottom: solid 4px #21ccbb;
   padding: .7em 3em;
+  margin-top:1em;
   color: white;
   text-shadow: 0 -1px 0 #21ccbb;
   font-size: 1.1em;
@@ -207,13 +210,11 @@ form input[type=submit] {
   -ms-border-radius: .5em;
   border-radius: .5em;
 }
-
 /* feedback */
 .error {
   background-color: #ffe9e0;
   border-color: #ffc4ad;
 }
-
 label.error {
   padding: .2em .5em;
 }
@@ -268,7 +269,6 @@ label.error {
 .feedback.success li:before {
   border-left-color: #6ce7db;
 }
-
 /* tables */
 table {
   border-collapse: collapse;
@@ -292,7 +292,6 @@ td {
   font-weight: 300;
   padding: 0 10px;
 }
-
 @media screen and (min-width: 600px) {
   html, body {
     height: 100%;

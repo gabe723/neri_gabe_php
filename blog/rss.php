@@ -11,7 +11,7 @@ WHERE users.user_id = posts.user_id
 AND posts.is_published = 1
 ORDER BY posts.date DESC
 LIMIT 10";
-$result = $db->query($query);
+$result = $db->query( $query );
 //check it
 if ( ! $result ) {
   die( $db->error );
