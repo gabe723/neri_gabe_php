@@ -8,7 +8,7 @@ include('admin-nav.php');
 ?>
 <main role="main">
   <section class="panel important">
-    <h2>Welcome to Your Dashboard </h2>
+    <h2>Welcome to Your Dashboard</h2>
     <ul>
       <li>Important panel that will always be really wide Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
       <li>Aliquam tincidunt mauris eu risus.</li>

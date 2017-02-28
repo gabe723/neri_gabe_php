@@ -11,7 +11,7 @@ require('register-parser.php');
 <body class="login">
 	<h1>Create an Account</h1>
 	<?php show_feedback( $feedback, $errors ); ?>
-	<form action="register.php" method="post">
+	<form class="form-register" action="register.php" method="post">
 		<label for="the_username">Choose a Username</label>
 		<input type="text" name="username" id="the_username">
 		<span class="hint">Between 5 - 50 characters</span>
