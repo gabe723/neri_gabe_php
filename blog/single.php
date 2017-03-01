@@ -4,7 +4,6 @@ require('db-config.php');
 include_once('functions.php');
 //get the doctype and header element
 include_once('header.php');
-
 //which post are we trying to show?
 //URL looks like: ".../blog/single.php?post_id=X"
 if( isset($_GET['post_id']) ){
@@ -58,7 +57,7 @@ if ( $_POST['did_comment'] ) {
 <main id="content">
   <?php
   //get all the information about the post we are trying to show (make sure it's published)
-  $query = "SELECT posts.title, posts.body, users.username, posts.date
+  $query = "SELECT posts.title, posts.body, users.username, posts.date, users.user_id
   FROM posts, users
   WHERE posts.user_id = users.user_id
   AND posts.is_published = 1
@@ -75,6 +74,7 @@ if ( $_POST['did_comment'] ) {
         <h2><?php echo $row['title']; ?></h2>
         <p><?php echo $row['body']; ?></p>
         <div class="post-info">
+          <?php show_profile_pic( $row['user_id'], 'small' ) ?>
           By <?php echo $row['username']; ?>
           on <?php echo convert_timestamp($row['date']); ?>
         </div>
@@ -120,16 +120,12 @@ if ( $_POST['did_comment'] ) {
             <form class="comment-form" action="#comment-form-wrap" method="post">
               <label for="the-name">Name:</label>
               <input type="text" name="name" id="the-name">
-
               <label for="the-email">Email:</label>
               <input type="email" name="email" id="the-email">
-
               <label for="the-url">url (optional)</label>
               <input type="url" name="url" id="the-url">
-
               <label for="the-body">Comment:</label>
               <textarea name="body" id="the-body"></textarea>
-
               <input type="submit" value="Leave Comment">
               <input type="hidden" name="did_comment" value="true">
             </form>

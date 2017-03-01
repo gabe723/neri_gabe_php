@@ -132,4 +132,21 @@ function count_posts_by_user( $user_id, $is_published = 1 ){
     echo $row['total'];
   }
 }
+/**
+* A helper function to display an <img> for any user's pic at any known size
+*/
+function show_profile_pic( $user_id, $size ){
+  global $db;
+  $query = "SELECT userpic, username FROM users WHERE user_id = $user_id LIMIT 1";
+  $result = $db->query( $query );
+  if ( $result->num_rows == 1 ) {
+    //display the image if it exists, otherwise show the default profile picture
+    $row = $result->fetch_assoc();
+    if ( $row['userpic'] != '' ) {
+      echo '<img src="' . ROOT_URL . '/uploads/' . $row['userpic'] . '_' . $size . '.jpg" class="userpic" alt="' . $row['username'] . '\'s profile picture">';
+    }else{
+      echo '<img src="' . ROOT_URL . '/images/default_user_' . $size . '.jpg" class="userpic" alt="default userpic">';
+    }
+  }
+}
 //DO NOT CLOSE PHP HERE!

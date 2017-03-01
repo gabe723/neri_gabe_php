@@ -20,12 +20,12 @@ if ( $_POST['did_post']) {
     $valid = false;
     $errors['body'] = 'Post body is required.';
   }
-  /*category cannot be blank or not a NumberFormatter*/
+  /*category cannot be blank or not a number*/
   if ( $category_id == '' ) {
     $valid = false;
     $errors['category_id'] = 'Category is required.';
   }
-  //if valid, add the post to the database//show user feedback
+  //if valid, add the post to the database and show user feedback
   if ( $valid ) {
     $user_id = USER_ID;
     $query = "UPDATE posts SET title = '$title',
